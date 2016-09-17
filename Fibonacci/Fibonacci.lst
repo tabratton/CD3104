@@ -1,0 +1,101 @@
+Microsoft (R) Macro Assembler Version 14.00.24210.0	    09/11/16 00:58:18
+fibanacci.asm						     Page 1 - 1
+
+
+				; Program template
+
+
+
+				.386
+				.model flat,stdcall
+				.stack 4096
+				ExitProcess proto,dwExitCode:dword
+
+ 00000000			.data
+ = 00000000			SEED0 = 0
+ = 00000001			SEED1 = 1
+ = 0000000E			NSEQ = 14
+ 00000000  00000010 [		fibArray WORD NSEQ + 2 DUP(?)
+	    0000
+	   ]
+ 00000020 0000			previousNum WORD 0d
+ 00000022 0001			currentNum WORD 1d
+
+ 00000000			.code
+ 00000000			main proc
+ 00000000  B8 00000000			mov eax, 0
+ 00000005  BB 00000000			mov ebx, 0
+ 0000000A  BE 00000000			mov esi, 0
+ 0000000F  66| B8 0000			mov ax, SEED0
+ 00000013  66| 89 86			mov fibArray[esi], ax
+	   00000000 R
+ 0000001A  83 C6 02			add esi, TYPE fibArray
+ 0000001D  66| B8 0001			mov ax, SEED1
+ 00000021  66| 89 86			mov fibArray[esi], ax
+	   00000000 R
+ 00000028  83 C6 02			add esi, TYPE fibArray
+ 0000002B  B9 0000000E			mov ecx, NSEQ
+ 00000030				L1:
+ 00000030  66| A1				mov ax, previousNum
+	   00000020 R
+ 00000036  66| 8B 1D				mov bx, currentNum
+	   00000022 R
+ 0000003D  66| 03 C3				add ax, bx
+ 00000040  66| 89 1D				mov previousNum, bx
+	   00000020 R
+ 00000047  66| A3				mov currentNum, ax
+	   00000022 R
+ 0000004D  66| 89 86				mov fibArray[esi], ax
+	   00000000 R
+ 00000054  83 C6 02				add esi, TYPE fibArray
+ 00000057  E2 D7				loop L1
+					invoke ExitProcess,0
+ 00000060			main endp
+				end main
+Microsoft (R) Macro Assembler Version 14.00.24210.0	    09/11/16 00:58:18
+fibanacci.asm						     Symbols 2 - 1
+
+
+
+
+Segments and Groups:
+
+                N a m e                 Size     Length   Align   Combine Class
+
+FLAT . . . . . . . . . . . . . .	GROUP
+STACK  . . . . . . . . . . . . .	32 Bit	 00001000 DWord	  Stack	  'STACK'	 
+_DATA  . . . . . . . . . . . . .	32 Bit	 00000024 DWord	  Public  'DATA'	
+_TEXT  . . . . . . . . . . . . .	32 Bit	 00000060 DWord	  Public  'CODE'	
+
+
+Procedures, parameters, and locals:
+
+                N a m e                 Type     Value    Attr
+
+ExitProcess  . . . . . . . . . .	P Near	 00000000 FLAT	Length= 00000000 External STDCALL
+main . . . . . . . . . . . . . .	P Near	 00000000 _TEXT	Length= 00000060 Public STDCALL
+  L1 . . . . . . . . . . . . . .	L Near	 00000030 _TEXT	
+
+
+Symbols:
+
+                N a m e                 Type     Value    Attr
+
+@CodeSize  . . . . . . . . . . .	Number	 00000000h   
+@DataSize  . . . . . . . . . . .	Number	 00000000h   
+@Interface . . . . . . . . . . .	Number	 00000003h   
+@Model . . . . . . . . . . . . .	Number	 00000007h   
+@code  . . . . . . . . . . . . .	Text   	 _TEXT
+@data  . . . . . . . . . . . . .	Text   	 FLAT
+@fardata?  . . . . . . . . . . .	Text   	 FLAT
+@fardata . . . . . . . . . . . .	Text   	 FLAT
+@stack . . . . . . . . . . . . .	Text   	 FLAT
+NSEQ . . . . . . . . . . . . . .	Number	 0000000Eh   
+SEED0  . . . . . . . . . . . . .	Number	 00000000h   
+SEED1  . . . . . . . . . . . . .	Number	 00000001h   
+currentNum . . . . . . . . . . .	Word	 00000022 _DATA	
+fibArray . . . . . . . . . . . .	Word	 00000000 _DATA	
+previousNum  . . . . . . . . . .	Word	 00000020 _DATA	
+
+	   0 Warnings
+	   0 Errors
