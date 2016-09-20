@@ -113,6 +113,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
+      <RandomizedBaseAddress>false</RandomizedBaseAddress>
+      <ImageHasSafeExceptionHandlers>false</ImageHasSafeExceptionHandlers>
     </Link>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
@@ -154,6 +156,7 @@
   <ItemGroup>
     <MASM Include="AddVariables.asm">
       <FileType>Document</FileType>
+      <AssembledCodeListingFile Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">$(ProjectName).lst</AssembledCodeListingFile>
     </MASM>
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />

@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.00.24210.0	    09/11/16 00:58:18
+Microsoft (R) Macro Assembler Version 14.00.24210.0	    09/20/16 11:23:09
 fibanacci.asm						     Page 1 - 1
 
 
@@ -52,7 +52,7 @@ fibanacci.asm						     Page 1 - 1
 					invoke ExitProcess,0
  00000060			main endp
 				end main
-Microsoft (R) Macro Assembler Version 14.00.24210.0	    09/11/16 00:58:18
+Microsoft (R) Macro Assembler Version 14.00.24210.0	    09/20/16 11:23:09
 fibanacci.asm						     Symbols 2 - 1
 
 

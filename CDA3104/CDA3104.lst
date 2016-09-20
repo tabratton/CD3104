@@ -1,4 +1,4 @@
-Microsoft (R) Macro Assembler Version 14.00.24210.0	    09/10/16 10:33:20
+Microsoft (R) Macro Assembler Version 14.00.24210.0	    09/20/16 11:23:06
 AddVariables.asm					     Page 1 - 1
 
 
@@ -25,7 +25,7 @@ AddVariables.asm					     Page 1 - 1
 					invoke ExitProcess,0
  0000001D			main endp
 				end main
-Microsoft (R) Macro Assembler Version 14.00.24210.0	    09/10/16 10:33:20
+Microsoft (R) Macro Assembler Version 14.00.24210.0	    09/20/16 11:23:06
 AddVariables.asm					     Symbols 2 - 1
 
 
