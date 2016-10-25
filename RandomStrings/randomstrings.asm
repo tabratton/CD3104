@@ -1,8 +1,8 @@
 INCLUDE Irvine32.inc
 
 .data
-maxStringLength DWORD 120d
-arrayB BYTE 50d DUP(?)
+maxStringLength = 120
+arrayB BYTE maxStringLength + 1 DUP(0) ; Makes sure that the last BYTE is always 0, even if a string of max length is generated
 
 .code
 main proc
@@ -11,8 +11,8 @@ main proc
 	mov ecx, 20d					; Loop 20 times
 	L1:
 		mov eax, maxStringLength	; Defines the maximum length of our random strings
-		call RandomRange			; Gets a random length in the range 0-(maxStringLength-1)
-		add eax, 1d					; Makes the range 1-maxStringLength
+		call RandomRange			; Gets a random length in the range 0 to (maxStringLength-1)
+		add eax, 1d					; Makes the range 1 to maxStringLength, ensuring that we always have at least 1 character
 		call RandomString			; Creates a random string of the random length that we generated
 		mov edx, esi				; WriteString requires the OFFSET of the string to be in EDX
 		call WriteString			; Writes the string to the console window
